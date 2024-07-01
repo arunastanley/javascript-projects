@@ -18,23 +18,46 @@ function holdStatus(arr){
   }
 }
 
-let fuelLevel = 200000;
+let fuelLevel = 50560;
 let cargoHold = ['meal kits', 'space suits', 'first-aid kit', 'satellite', 'gold', 'water', 'AE-35 unit'];
-
-console.log("Fuel level: " + checkFuel(fuelLevel));
-console.log("Hold status: " + holdStatus(cargoHold));
+// console.log("Fuel level: " + checkFuel(fuelLevel));
+// console.log("Hold status: " + holdStatus(cargoHold));
 
 /* Steal some fuel from the shuttle:
  * /
  
-//a). Define an anonymous function and set it equal to a variable with a normal, non-suspicious name. The function takes one parameter. This will be the fuel level on the shuttle.
+a). Define an anonymous function and set it equal to a variable with a normal, non-suspicious name. The function takes one parameter. This will be the fuel level on the shuttle.
 
-//b). You must siphon off fuel without alerting the TAs. Inside your function, you want to reduce the fuel level as much as possible WITHOUT changing the color returned by the checkFuel function.
+b). You must siphon off fuel without alerting the TAs. Inside your function, you want to reduce the fuel level as much as possible WITHOUT changing the color returned by the checkFuel function.
 
-//c). Once you figure out how much fuel to pump out, return that value.
+c). Once you figure out how much fuel to pump out, return that value.
 
-//d). Decide where to best place your function call to gather our new fuel.
+d). Decide where to best place your function call to gather our new fuel.*/
 
+let myFuelStatus = function(fuel){
+ 
+  if (checkFuel(fuel) === 'green'){
+    
+
+     return fuel - 100001;
+      
+   
+    }else if(checkFuel(fuel) === 'yellow'){
+        
+      return fuel - 50001;
+          
+    }else {
+      return fuel;
+    }
+  
+};
+// let myFuel = myFuelStatus(fuelLevel);
+// console.log("My Fuel:",  myFuel);
+// console.log("Their fuel: ", fuelLevel-myFuel);
+// console.log("their status:", checkFuel(fuelLevel-myFuel));
+
+
+/*
 /* Next, liberate some of that glorious cargo.
  * /
 
@@ -55,3 +78,35 @@ console.log("Hold status: " + holdStatus(cargoHold));
 
 //c). Use a template literal to return, "Raided _____ kg of fuel from the tanks, and stole ____ and ____ from the cargo hold."
 
+*/
+
+
+
+let innocent = function(cargoArr){
+let myCargo = [];
+  while (myCargo.length < 2){
+    if(cargoArr[0] !== 'water'){
+          myCargo.push(cargoArr[0]);
+          cargoArr.splice(0,1);
+          cargoArr.push("Oranges");
+    }else{myCargo.push(cargoArr[1]);
+      cargoArr.splice(1,1);
+      cargoArr.push("Mangoes");
+    }
+  }
+
+ 
+return myCargo;
+
+};
+ 
+
+// console.log("myCatch: ",innocent(cargoHold) );
+// console.log("their cargo: ", cargoHold);
+
+let irs = function(levelOfFuel, itemsInCargo) {
+  let myCargo = innocent(itemsInCargo);
+  console.log(`Raided ${myFuelStatus(levelOfFuel)} kg of fuel from the tanks, and stole ${myCargo[0]} and ${myCargo[1]} from the cargo hold.`);     
+}
+
+irs(fuelLevel,cargoHold);
