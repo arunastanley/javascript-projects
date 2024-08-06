@@ -28,3 +28,9 @@
 .centered {
     text-align: center;
 }
+
+.democlass{
+    position: absolute;
+    top: 10px;
+
+  }
