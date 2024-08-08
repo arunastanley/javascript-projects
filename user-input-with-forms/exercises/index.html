@@ -6,9 +6,46 @@
     <style>
       label { display: block; margin-bottom: 7px;}
     </style>
+    <script src="script.js"></script>
   </head>
   <body>
+    <h1>Rocket Simulation</h1>
     <!-- TODO: add form here -->
+    <form action="https://handlers.education.launchcode.org/request-parrot" method="post">
+          <label>Test Name
+            <input type="text" name="testName"/>
+          </label>
+          <label>Test Date
+            <input type="date" name="testDate"/>
+          </label>
+          <label>Rocket Type
+            <select name="rocketType"  >
+                <option value="Brant">Brant</option>
+                <option value="Lynx">Lynx</option>
+                <option value="Orion">Orion</option>
+                <option value="Terrier">Terrier</option>
+            </select>
+         </label>
+        <label>Number of Rocket Boosters
+          <input type="number" name="boosterCount" min="1" max="10"/>
+        </label>
+        <label>Wind Rating:
+          <label>No Wind:
+            <input type="radio" name="windRating" id="=noWind" value="0" required/>
+          </label>
+          <label>Mild:
+            <input type="radio" name="windRating" id="=Mild" value="10" required/>
+          </label>
+          <label>Strong:
+            <input type="radio" name="windRating" id="=Strong" value="20" required/>
+          </label>
+        </label>
+        <label>Use production grade servers
+          <input type="checkbox" name="productionServers" required>
+        </label>
+          <button>Run Simulation</button>
+    </form>
+
   </body>
   
 </html>
